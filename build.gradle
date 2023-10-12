@@ -4,3 +4,29 @@
  * This is a general purpose Gradle build.
  * Learn more about Gradle by exploring our samples at https://docs.gradle.org/8.1.1/samples
  */
+
+plugins {
+    id 'base'
+}
+
+def homePath = System.properties['user.home']
+def presentationSrc = "presentation.adoc"
+def presentationSrcDir = "$projectDir"
+def presentationSrcPath = "$projectDir/$presentationSrc"
+def presentationBuildDir = "$projectDir/build"
+def revealjsDir = "$projectDir/reveal.js"
+def revealjsBuildDir = "$presentationBuildDir/reveal.js"
+
+tasks.register('copyRevealjsToBuildDir', Copy) {
+    from "$revealjsDir"
+    into "$revealjsBuildDir"
+}
+
+tasks.register('buildPresentation', Exec) {
+    dependsOn(copyRevealjsToBuildDir)
+    commandLine "bash", "-c", "asciidoctor-revealjs $presentationSrcPath -D $presentationBuildDir"
+}
+
+tasks.named("assemble") {
+    dependsOn(buildPresentation)
+}
