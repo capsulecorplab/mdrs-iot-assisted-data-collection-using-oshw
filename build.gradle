@@ -14,8 +14,16 @@ def presentationSrc = "presentation.adoc"
 def presentationSrcDir = "$projectDir"
 def presentationSrcPath = "$projectDir/$presentationSrc"
 def presentationBuildDir = "$projectDir/build"
+def imagesDir = "$projectDir/images"
+def imagesBuildDir = "$presentationBuildDir/images"
 def revealjsDir = "$projectDir/reveal.js"
 def revealjsBuildDir = "$presentationBuildDir/reveal.js"
+
+tasks.register('copyImagesToBuildDir', Copy) {
+    from "$imagesDir"
+    into "$imagesBuildDir"
+}
+
 
 tasks.register('copyRevealjsToBuildDir', Copy) {
     from "$revealjsDir"
@@ -23,6 +31,7 @@ tasks.register('copyRevealjsToBuildDir', Copy) {
 }
 
 tasks.register('buildPresentation', Exec) {
+    dependsOn(copyImagesToBuildDir)
     dependsOn(copyRevealjsToBuildDir)
     commandLine "bash", "-c", "asciidoctor-revealjs $presentationSrcPath -D $presentationBuildDir"
 }
