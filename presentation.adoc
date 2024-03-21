@@ -1,0 +1,34 @@
+= MDRS IoT-assisted data collection using OSHW & OSS (draft) research proposal
+
+by Sean Marquez
+
+== Problem statement
+
+Monitoring and record keeping of environmental conditions is vital for sustaining the health and well-being of living organisms.
+Manually managing such processes can become tedious, time-consuming, and prone to human error.
+The need for solutions that minimize workload without being too tethered to interplanetary supplychains becomes more evident as humanity endeavors to become multiplanetary.
+
+== Background
+
+IoT-assisted data collection using open-source hardware (OSHW) can serve as a means to alleviate manual monitoring and record keeping of environmental conditions, with minimal reliance on interplanetary supplychains (by virtue of parts or tools being locally reproducible).
+Plaintext-based languages and rendering tools used for documentation in the open-source software (OSS) community can be leveraged, in conjunction with IoT-collected data, to fascilitate report generation on the local filesystem without the need for cloud-based services or proprietary software.
+
+== Proposed research (software)
+
+Herein we propose the use of FPrime - a flight-proven, multi-platform, open-source flight software framework with flight heritage on the Mars Inguinuity helicopter and university CubeSats (https://github.com/nasa/fprime), for use at MDRS.
+
+FPrime would facilitate real-time data collection of environmental conditions (s.a., temperature, humidity, pressure, and volatile organic compounds) for plants (s.a., tomatoes and leafy greens) grown in the GreenHab during the course of crew 297's mission.
+
+The FPrime ground data system can be run locally from a cross-platform virtual environment, maintained at https://github.com/mdrs-community/mdrs-workspace-image/, which is pre-configured with documentation tools for report generation.
+
+== Proposed research (hardware)
+
+FPrime can be deployed on a microcontroller (s.a., a Teensy 4.1 https://www.adafruit.com/product/4622) wired to environmental sensors (s.a., a BME688 - https://www.adafruit.com/product/5046) via I2C interface and configured to stream data via radio transceiver (s.a., an Adafruit RFM69HCW Transceiver Radio Breakout - 433 MHz https://www.adafruit.com/product/3071) to a laptop running the FPrime ground data system.
+
+An MDRS community "fork" of the FPrime baremetal reference is also maintained at https://github.com/mdrs-community/fprime-baremetal-reference.
+
+== Significance of proposed work
+
+This would demonstrate the use of flight-proven NASA/JPL open-source software on open-source hardware in the upcoming MDRS crew 297 mission, as well as establish a customizable and re-usable data collection system for future missions.
+
+This data collection system can be extended to either robotic or manned EVA's.
