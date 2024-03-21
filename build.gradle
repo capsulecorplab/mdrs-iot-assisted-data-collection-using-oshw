@@ -11,6 +11,7 @@ plugins {
 
 def homePath = System.properties['user.home']
 def presentationSrc = "presentation.adoc"
+def presentationOut = "index.html"
 def presentationSrcDir = "$projectDir"
 def presentationSrcPath = "$projectDir/$presentationSrc"
 def presentationBuildDir = "$projectDir/build"
@@ -33,7 +34,7 @@ tasks.register('copyRevealjsToBuildDir', Copy) {
 tasks.register('buildPresentation', Exec) {
     dependsOn(copyImagesToBuildDir)
     dependsOn(copyRevealjsToBuildDir)
-    commandLine "bash", "-c", "asciidoctor-revealjs $presentationSrcPath -D $presentationBuildDir"
+    commandLine "bash", "-c", "asciidoctor-revealjs $presentationSrcPath -D $presentationBuildDir -o $presentationOut"
 }
 
 tasks.named("assemble") {
