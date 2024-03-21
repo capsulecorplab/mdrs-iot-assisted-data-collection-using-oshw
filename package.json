@@ -1,0 +1,22 @@
+{
+  "name": "mdrs-iot-assisted-data-collection-using-oshw",
+  "version": "0.1.0",
+  "description": "MDRS IoT-assisted data collection using OSHW (draft) research proposal",
+  "main": "reveal.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/capsulecorplab/mdrs-iot-assisted-data-collection-using-oshw.git"
+  },
+  "keywords": [
+    "mdrs"
+  ],
+  "author": "Sean Marquez",
+  "license": "CC-BY-4.0",
+  "bugs": {
+    "url": "https://github.com/capsulecorplab/mdrs-iot-assisted-data-collection-using-oshw/issues"
+  },
+  "homepage": "https://github.com/capsulecorplab/mdrs-iot-assisted-data-collection-using-oshw#readme"
+}
