@@ -10,14 +10,12 @@ The need for solutions that minimize workload without being too tethered to inte
 
 == Background
 
-IoT-assisted data collection using open-source hardware (OSHW) can serve as a means to alleviate manual monitoring and record keeping of environmental conditions, with minimal reliance on interplanetary supplychains (by virtue of parts or tools being locally reproducible).
+Internet of Things (IoT) assisted data collection using open-source hardware (OSHW) can serve as a means to alleviate manual monitoring and record keeping of environmental conditions, with minimal reliance on interplanetary supplychains (by virtue of parts or tools being locally reproducible).
 Plaintext-based languages and rendering tools used for documentation in the open-source software (OSS) community can be leveraged, in conjunction with IoT-collected data, to fascilitate report generation on the local filesystem without the need for cloud-based services or proprietary software.
 
 == Proposed research (software)
 
-Herein we propose the use of FPrime - a flight-proven, multi-platform, open-source flight software framework with flight heritage on the Mars Inguinuity helicopter and university CubeSats (https://github.com/nasa/fprime), for use at MDRS.
-
-FPrime would facilitate real-time data collection of environmental conditions (s.a., temperature, humidity, pressure, and volatile organic compounds) for plants (s.a., tomatoes and leafy greens) grown in the GreenHab during the course of crew 297's mission.
+Herein we propose the use of FPrime - a flight-proven, multi-platform, open-source flight software framework with flight heritage on the Mars Inguinuity helicopter and university CubeSats (https://github.com/nasa/fprime) for facilitating real-time data collection of environmental conditions (s.a., temperature, humidity, pressure, and volatile organic compounds) for plants (s.a., tomatoes and leafy greens) grown in the GreenHab during the course of crew 297's mission.
 
 The FPrime ground data system can be run locally from a cross-platform virtual environment, maintained at https://github.com/mdrs-community/mdrs-workspace-image/, which is pre-configured with documentation tools for report generation.
 
@@ -29,6 +27,6 @@ An MDRS community "fork" of the FPrime baremetal reference is also maintained at
 
 == Significance of proposed work
 
-This would demonstrate the use of flight-proven NASA/JPL open-source software on open-source hardware in the upcoming MDRS crew 297 mission, as well as establish a customizable and re-usable data collection system for future missions.
+This work would demonstrate the use of flight-proven NASA/JPL open-source software on open-source hardware, providing a customizable and re-usable data collection system for future missions
 
 This data collection system can be extended to either robotic or manned EVA's.
