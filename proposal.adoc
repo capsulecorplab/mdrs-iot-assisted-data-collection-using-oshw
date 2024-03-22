@@ -1,5 +1,10 @@
 = MDRS IoT-assisted data collection using OSHW & OSS (draft) research proposal
 
+ifdef::backend-html5[]
+image:https://img.shields.io/badge/View%20as%20-PDF-blue[View as PDF, link=proposal.pdf]
+image:https://img.shields.io/badge/View%20as%20-Slidedeck-green[View as slidedeck, link=slidedeck.html]
+endif::[]
+
 by Sean Marquez
 
 == Problem statement
