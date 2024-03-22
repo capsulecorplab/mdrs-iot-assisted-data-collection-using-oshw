@@ -9,34 +9,48 @@ plugins {
     id 'base'
 }
 
-def homePath = System.properties['user.home']
-def presentationSrc = "presentation.adoc"
-def presentationOut = "index.html"
-def presentationSrcDir = "$projectDir"
-def presentationSrcPath = "$projectDir/$presentationSrc"
-def presentationBuildDir = "$projectDir/build"
+def contentSrc = "proposal.adoc"
+def htmlOut = "index.html"
+def pdfOut = "proposal.pdf"
+def slidedeckOut = "slidedeck.html"
+def contentSrcDir = "$projectDir"
+def contentSrcPath = "$projectDir/$contentSrc"
+def contentBuildDir = "$projectDir/build"
 def imagesDir = "$projectDir/images"
-def imagesBuildDir = "$presentationBuildDir/images"
+def imagesBuildDir = "$contentBuildDir/images"
 def revealjsDir = "$projectDir/reveal.js"
-def revealjsBuildDir = "$presentationBuildDir/reveal.js"
+def revealjsBuildDir = "$contentBuildDir/reveal.js"
+//def contentBuildDir = "$buildDir"
+//def contentHtmlPath = "$contentBuildDir/$htmlOut"
+//def contentPdfPath = "$contentBuildDir/$pdfOut"
 
 tasks.register('copyImagesToBuildDir', Copy) {
     from "$imagesDir"
     into "$imagesBuildDir"
 }
 
-
 tasks.register('copyRevealjsToBuildDir', Copy) {
     from "$revealjsDir"
     into "$revealjsBuildDir"
 }
 
+tasks.register('buildHTML', Exec) {
+    commandLine "bash", "-c", "asciidoctor $contentSrc -D $contentBuildDir -o $htmlOut"
+}
+
+tasks.register('buildPDF', Exec) {
+    commandLine "bash", "-c", "asciidoctor $contentSrc -D $contentBuildDir -o $pdfOut -r asciidoctor-pdf -b pdf"
+}
+
 tasks.register('buildPresentation', Exec) {
     dependsOn(copyImagesToBuildDir)
     dependsOn(copyRevealjsToBuildDir)
-    commandLine "bash", "-c", "asciidoctor-revealjs $presentationSrcPath -D $presentationBuildDir -o $presentationOut"
+    commandLine "bash", "-c", "asciidoctor-revealjs $contentSrc -D $contentBuildDir -o $slidedeckOut"
 }
 
 tasks.named("assemble") {
+    dependsOn(buildHTML)
+    dependsOn(buildPDF)
     dependsOn(buildPresentation)
 }
+
