@@ -23,7 +23,7 @@ The FPrime ground data system can be run locally from a cross-platform virtual e
 
 == Proposed research (hardware)
 
-FPrime can be deployed on a microcontroller (s.a., a Teensy 4.1 https://www.adafruit.com/product/4622) wired to environmental sensors (s.a., a BME688 - https://www.adafruit.com/product/5046) via I2C interface and configured to stream data via radio transceiver (s.a., an Adafruit RFM69HCW Transceiver Radio Breakout - 433 MHz https://www.adafruit.com/product/3071) to a laptop running the FPrime ground data system.
+FPrime can be deployed on a microcontroller (s.a., a Teensy 4.1 https://www.adafruit.com/product/4622) wired to environmental sensors (s.a., a BME688 - https://www.adafruit.com/product/5046) via I2C interface and configured to stream data via low-powered radio transceiver (s.a., an Adafruit RFM69HCW Transceiver Radio Breakout - 433 MHz https://www.adafruit.com/product/3071) to a laptop running the FPrime ground data system.
 
 An MDRS community "fork" of the FPrime baremetal reference is also maintained at https://github.com/mdrs-community/fprime-baremetal-reference.
 
